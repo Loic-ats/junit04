@@ -35,7 +35,7 @@ public class Achat {
 		this.quantiteAchat = quantiteAchat;
 	}
 	
-	public static Date checkDate(String date) throws Exception{
+	public static Date checkDate(String date) throws Exception {
 		SimpleDateFormat format = new SimpleDateFormat();
 		format.applyPattern("dd/MM/yyyy");
 		format.setLenient(false);

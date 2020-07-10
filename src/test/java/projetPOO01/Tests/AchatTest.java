@@ -1,61 +1,79 @@
 package projetPOO01.Tests;
 
 import static org.junit.Assert.*;
-
+import java.util.Date;
+import org.junit.Before;
 import org.junit.Test;
 
 import projetPOO01.Methodes.Achat;
 
 public class AchatTest {
 	
+	private Achat ach;
+	private final Date odate = new Date();
+	private final String ointitule = "Commande";
+	private final String oquantite = "";
+	private final Date setdate = new Date();
+	private final String setintitule = "fgh";
+	private final String setquantite = "dg";
+	
+	@Before
+	public void init () {
+	ach = new Achat(odate,ointitule,oquantite);
+	}
+	
 	@Test
 	public void testAchat() {
-		fail("Not yet implemented");
+		assertNotNull(ach);
 	}
 
 	@Test
 	public void testToString() {
-		fail("Not yet implemented");
+		String toString = "Achat [Date:" + odate + 
+				", Intitule=" + ointitule + 
+				", Quantite=" + oquantite + "]";
+		assertEquals(toString, ach.toString());
 	}
 
 	@Test
 	public void testGetDate() {
-		fail("Not yet implemented");
+		assertEquals(odate,ach.getDate());
 	}
 
 	@Test
 	public void testSetDate() {
-		fail("Not yet implemented");
+		ach.setDate(setdate);
+		assertEquals(setdate,ach.getDate());
 	}
 
 	@Test
 	public void testGetIntituleAchat() {
-		fail("Not yet implemented");
+	assertEquals(ointitule, ach.getIntituleAchat());
 	}
 
 	@Test
 	public void testSetIntituleAchat() {
-		fail("Not yet implemented");
+		ach.setIntituleAchat(setintitule);
+		assertEquals(setintitule, ach.getIntituleAchat());
 	}
 
 	@Test
 	public void testGetQuantiteAchat() {
-		fail("Not yet implemented");
+		assertEquals (oquantite, ach.getQuantiteAchat());
 	}
 
 	@Test
 	public void testSetQuantiteAchat() {
-		Achat achat = new Achat (15/7/2020, "Maison", "15" );
-		assertNotNull(achat); //Vérifier que l'objet maPersonne est bien un objet Personne
-		assertEquals("15", achat.toString()); // Vérifier que l'objet quantité achat et bien du string	
-
-		
-		fail("Not yet implemented");
+	ach.setQuantiteAchat(setquantite);
+	assertEquals(setquantite, ach.getQuantiteAchat());
+	
 	}
 
-	@Test
-	public void testCheckDate() {
-		fail("Not yet implemented");
+	@Test (expected = Exception.class)
+	public void testCheckDate() throws Exception {
+
+			Date date = new Date ();
+			Achat.checkDate(date.toString());
 	}
 
 }
